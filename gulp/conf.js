@@ -1,6 +1,7 @@
 var gutil = require('gulp-util');
 
 exports.paths = {
+    assets: 'server/assets',
     scss: 'scss',
     server: 'server',
     src: 'server/app',

@@ -8,11 +8,11 @@ $fonts: (
 @each $font-family, $font-weight, $font-style, $filename in $fonts {
     @font-face {
         font-family: $font-family;
-        src: url('../assets/fonts/#{$filename}-webfont.eot');
-        src: url('../assets/fonts/#{$filename}-webfont.eot?#iefix') format('embedded-opentype'),
-        url('../assets/fonts/#{$filename}-webfont.woff') format('woff'),
-        url('../assets/fonts/#{$filename}-webfont.ttf') format('truetype'),
-        url('../assets/fonts/#{$filename}-webfont.svg#robotobold') format('svg');
+        src: url('fonts/#{$filename}-webfont.eot');
+        src: url('fonts/#{$filename}-webfont.eot?#iefix') format('embedded-opentype'),
+        url('fonts/#{$filename}-webfont.woff') format('woff'),
+        url('fonts/#{$filename}-webfont.ttf') format('truetype'),
+        url('fonts/#{$filename}-webfont.svg#robotobold') format('svg');
         font-weight: $font-weight;
         font-style: $font-style;
     }

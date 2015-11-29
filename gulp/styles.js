@@ -40,5 +40,5 @@ gulp.task('styles', ()  => {
         .pipe($.sass(sassOptions)).on('error', conf.errorHandler('Sass'))
         .pipe($.autoprefixer()).on('error', conf.errorHandler('Autoprefixer'))
         .pipe($.sourcemaps.write())
-        .pipe(gulp.dest(conf.paths.src));
+        .pipe(gulp.dest(conf.paths.assets));
 });

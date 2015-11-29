@@ -1,0 +1,31 @@
+.person {
+    .number {
+        display: inline;
+
+        &:before {
+            content: '#';
+        }
+    }
+
+    .property-key {
+        display: inline;
+
+        font-weight: 600;
+
+        &:after {
+            content: ':';
+
+            font-weight: 600;
+        }
+    }
+
+    .property-value {
+        display: inline;
+    }
+
+    .ticket_fare {
+        &:before {
+            content: '£'
+        }
+    }
+}

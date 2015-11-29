@@ -7,9 +7,9 @@ const compress = require('koa-compress'),
     hbs = require('koa-hbs'),
     Koa = require('koa'),
     logger = require('koa-logger'),
-    moment = require('moment'),
     mongoose = require('mongoose'),
     Router = require('koa-router'),
+    serve = require('koa-static'),
     winston = require('winston');
 
 
@@ -19,11 +19,6 @@ const config = require('./config');
 // Logging
 winston.remove(winston.transports.Console);
 winston.add(winston.transports.Console, {timestamp: true});
-winston.add(winston.transports.File, {
-    filename: `../log/save_downloaded_${moment().format('YYYYMMDD_HHmmss')}.log`,
-    json: false,
-    timestamp: true,
-});
 winston.level = 'debug';
 
 
@@ -37,7 +32,8 @@ mongoose.connection.on('error', (err) => {
 
 // Configure KOA framework
 const app = new Koa();
-app.name = 'Scraping challenge server';
+app.name = 'Scraping challenge';
+
 
 if (config.debug) {
     app.use(logger());
@@ -47,13 +43,11 @@ app.use(errorHandler());
 app.use(compress());
 app.use(hbs.middleware(config.template));
 
+// Assets
+app.use(serve('assets'));
 
 // Define routes
-const router = new Router();
-
-router.use('/', require('./app')(config));
-
-app.use(router.routes());
+app.use(require('./app')(config));
 
 
 // Start server
