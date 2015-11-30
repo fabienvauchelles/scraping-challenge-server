@@ -1,11 +1,10 @@
 'use strict';
 
 const _ = require('lodash'),
+    PromiseBB = require('bluebird'),
     fs = require('fs'),
     mongoose = require('mongoose'),
     Person = require('../../server/model/person.model'),
-    readline = require('readline'),
-    stream = require('stream'),
     winston = require('winston');
 
 const config = _.merge(
@@ -35,36 +34,28 @@ Person.remove({}, (err) => {
     // Add insert new data
 
     // Read source file
-    const instream = fs.createReadStream(config.data.path);
-    instream.on('error', (err) => winston.error('[Stream] Error: ', err));
-    instream.on('end', () => {
-        //mongoose.disconnect();
-    });
+    fs.readFile(config.data.path, (err, data) => {
+        if (err) return winston.error('[File] Error: ', err);
 
-    const rl = readline.createInterface({
-        input: instream,
-        terminal: false,
-    });
+        const lines = data.toString().split('\n');
 
-    rl.on('line', (data) => {
-        const parsed = JSON.parse(data);
+        const persons = _(lines)
+            .take(config.max)
+            .map((line) => JSON.parse(line))
+            .value();
 
-        rl.pause();
-
-        let person;
-        try {
-            person = new Person(parsed);
-            person.save((err) => {
-                if (err) return winston.error('[Mongoose] Error: ', err);
-
-                winston.debug('%s saved.', person.given_name);
-
-                rl.resume();
+        let count = 0;
+        PromiseBB.map(
+            persons,
+            (person) => Person
+                .create(person)
+                .then(() => {
+                    winston.debug('[%d] %s saved.', count++, person.given_name);
+                })
+            ,
+            {
+                concurrency: 1,
             });
-        }
-        catch (err) {
-            winston.error('[Mongoose/Validation] Error: ', err);
-        }
     });
 });
 
