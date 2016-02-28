@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="help panel panel-default">
+        <div class="panel-heading">
+            <div class="panel-title">
+                Challenge 4: Login
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="help-title">Instructions</div>
+
+            <div class="help-content">
+                Pages are restricted to a logged user. Add a login request and a cookies store to the scraper.
+            </div>
+
+            <div class="help-content">
+                The email is 'john@doe.com' and the password 'johnjohn'.
+            </div>
+
+            <div class="help-title">Start</div>
+
+            <div class="help-code">
+                git checkout login
+            </div>
+
+            <div class="help-title">Soluce</div>
+
+            <div class="help-code">
+                git checkout login-soluce
+            </div>
+        </div>
+    </div>
+
+    <form method="post" action="/login/auth">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+        </div>
+
+        <button type="submit" class="btn btn-default">Connect</button>
+    </form>
+</div>

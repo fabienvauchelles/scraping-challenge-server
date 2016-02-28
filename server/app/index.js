@@ -11,6 +11,7 @@ module.exports = (config) => {
     router.redirect('/ch1', '/onepage');
     router.redirect('/ch2', '/pagination');
     router.redirect('/ch3', '/useragent');
+    router.redirect('/ch4', '/login');
 
     // CSV
     router.use('/csv', require('./csv')(config));
@@ -23,6 +24,9 @@ module.exports = (config) => {
 
     // User agent
     router.use('/useragent', require('./useragent')(config));
+
+    // Login
+    router.use('/login', require('./login')(config));
 
     // Get
     router.get('/', function * (next) {

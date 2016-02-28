@@ -17,4 +17,9 @@ module.exports = {
     pagination: {
         size: 10,
     },
+
+    jwt: {
+        secret: 'Kkbxz1Thpi87u91gHNXO4Mt4YD58rW8e',
+        expiresIn: '10m',
+    },
 };

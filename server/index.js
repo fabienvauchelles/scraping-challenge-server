@@ -2,7 +2,8 @@
  * MAIN: Configuration and main application
  */
 
-const compress = require('koa-compress'),
+const bodyParser = require('koa-bodyparser'),
+    compress = require('koa-compress'),
     errorHandler = require('koa-error'),
     hbs = require('koa-hbs'),
     Koa = require('koa'),
@@ -40,6 +41,7 @@ if (config.debug) {
 
 app.use(errorHandler());
 app.use(compress());
+app.use(bodyParser());
 app.use(hbs.middleware(config.template));
 
 // Assets

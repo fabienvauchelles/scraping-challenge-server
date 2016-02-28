@@ -1,0 +1,164 @@
+<div class="container">
+    <div class="help panel panel-default">
+        <div class="panel-heading">
+            <div class="panel-title">
+                Challenge 4: Login
+
+                <a href="/login/logout" class="btn btn-default btn-xs pull-right">Logout</a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="help-title">Instructions</div>
+
+            <div class="help-content">
+                Pages are restricted to a logged user. Add a login request and a cookies store to the scraper.
+            </div>
+
+            <div class="help-content">
+                The email is 'john@doe.com' and the password 'johnjohn'.
+            </div>
+
+            <div class="help-title">Start</div>
+
+            <div class="help-code">
+                git checkout login
+            </div>
+
+            <div class="help-title">Soluce</div>
+
+            <div class="help-code">
+                git checkout login-soluce
+            </div>
+        </div>
+    </div>
+
+    {{#each persons}}
+        <div class="person panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="property-key">Name</div>
+                        <div class="name property-value">{{honorific_prefix}} {{given_name}} {{family_name}}</div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="property-key">Birth year</div>
+                        <div class="birth_year property-value">{{birth_year}}</div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="property-key">Death year</div>
+                        <div class="death_year property-value">{{death_year}}</div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="property-key">Gender</div>
+                        <div class="gender property-value">{{gender}}</div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="property-key">Marital status</div>
+                        <div class="marital_status property-value">{{marital_status}}</div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="property-key">Spouse</div>
+                        <div class="spouse property-value">{{spouse}}</div>
+                    </div>
+                </div>
+
+                {{#if crew}}
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="property-key">Member of crew</div>
+                            <div class="crew property-value">Yes</div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="property-key">Last ship (crew)</div>
+                            <div class="crew_last_ship property-value">{{crew_last_ship}}</div>
+                        </div>
+                    </div>
+                {{/if}}
+
+                {{#unless crew}}
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="property-key">Ticket class</div>
+                            <div class="pclass property-value">{{pclass}}</div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="property-key">Ticket number</div>
+                            <div class="ticket_num property-value">{{ticket_num}}</div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="property-key">Ticket price</div>
+                            <div class="ticket_fare property-value">{{ticket_fare}}</div>
+                        </div>
+                    </div>
+                {{/unless}}
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="property-key">Residence</div>
+                        <div class="residence property-value">{{last_residence_city}} {{last_residence_state}} {{last_residence_country}}</div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="property-key">Job</div>
+                        <div class="job property-value">{{job}}</div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="property-key">Companions count</div>
+                        <div class="companions_count property-value">{{companions_count}}</div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="property-key">Cabin</div>
+                        <div class="cabin property-value">{{cabin}}</div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="property-key">Embarked in</div>
+                        <div class="first_embarked_place property-value">{{first_embarked_place}}</div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="property-key">Destination</div>
+                        <div class="destination property-value">{{destination_city}} {{destination_state}} {{destination_country}}</div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="property-key">Died in the Titanic</div>
+                        <div class="died_in_titanic property-value">
+                            {{#if died_in_titanic}}Yes{{/if}}
+                            {{#unless died_in_titanic}}No{{/unless}}
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="property-key">Body recovered</div>
+                        <div class="body_recovered property-value">
+                            {{#if body_recovered}}Yes{{/if}}
+                            {{#unless body_recovered}}No{{/unless}}
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="property-key">Rescue boat number</div>
+                        <div class="rescue_boat_num property-value">{{rescue_boat_num}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</div>
