@@ -8,7 +8,7 @@ module.exports = () => {
     const router = new Router();
 
     // Get
-    router.get('/', function * (next) {
+    router.get('/', checkUA, function * (next) {
         const persons = yield Person
             .find()
             .sort({
@@ -16,8 +16,8 @@ module.exports = () => {
                 family_name: 1,
             });
 
-        yield this.render('onepage/index', {
-            title: 'One page',
+        yield this.render('useragent/index', {
+            title: 'User agent',
             persons: persons,
         });
 
@@ -26,3 +26,18 @@ module.exports = () => {
 
     return router.routes();
 };
+
+
+const validUA = /chrome/i;
+
+function * checkUA(next) {
+    const ua = this.request.headers['user-agent'] || '';
+
+    if (!validUA.test(ua)) {
+        this.body = 'Forget me, scraper. Only Chrome is allowed.'
+        this.status = 503;
+        return;
+    }
+
+    yield next;
+}

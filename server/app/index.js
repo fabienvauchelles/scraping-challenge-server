@@ -1,7 +1,6 @@
 'use strict';
 
-const Persons = require('../model/person.model'),
-    Router = require('koa-router');
+const Router = require('koa-router');
 
 
 module.exports = (config) => {
@@ -22,8 +21,8 @@ module.exports = (config) => {
     // Pagination
     router.use('/pagination', require('./pagination')(config));
 
-    // User agent (pagination + user agent)
-    router.use('/useragent', require('../useragent')(config), require('./pagination')(config));
+    // User agent
+    router.use('/useragent', require('./useragent')(config));
 
     // Get
     router.get('/', function * (next) {

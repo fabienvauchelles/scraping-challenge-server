@@ -8,3 +8,32 @@
 .pagination-nav {
     text-align: center;
 }
+
+
+.help {
+    .help-title {
+        margin: 15px 0 5px 0;
+
+        font-weight: bold;
+
+        &:first-child {
+            margin-top: 0px;
+        }
+    }
+
+    .help-code {
+        margin: 5px 0;
+
+        font-family: 'Courier New', sans-serif;;
+    }
+
+    .help-content {
+        margin: 5px 0;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+

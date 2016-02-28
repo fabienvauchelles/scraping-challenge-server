@@ -2,26 +2,26 @@
     <div class="help panel panel-default">
         <div class="panel-heading">
             <div class="panel-title">
-                Challenge 1: One page
+                Challenge 3: User agent
             </div>
         </div>
         <div class="panel-body">
             <div class="help-title">Instructions</div>
 
             <div class="help-content">
-                All persons are in this page. Create a scraper to scrap all profiles.
+                Pages are restricted to Chrome. Try with Chrome AND Firefox. And change the user agent.
             </div>
 
             <div class="help-title">Start</div>
 
             <div class="help-code">
-                git checkout onepage
+                git checkout useragent
             </div>
 
             <div class="help-title">Soluce</div>
 
             <div class="help-code">
-                git checkout onepage-soluce
+                git checkout useragent-soluce
             </div>
         </div>
     </div>
@@ -64,36 +64,36 @@
                 </div>
 
                 {{#if crew}}
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="property-key">Member of crew</div>
-                        <div class="crew property-value">Yes</div>
-                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="property-key">Member of crew</div>
+                            <div class="crew property-value">Yes</div>
+                        </div>
 
-                    <div class="col-md-4">
-                        <div class="property-key">Last ship (crew)</div>
-                        <div class="crew_last_ship property-value">{{crew_last_ship}}</div>
+                        <div class="col-md-4">
+                            <div class="property-key">Last ship (crew)</div>
+                            <div class="crew_last_ship property-value">{{crew_last_ship}}</div>
+                        </div>
                     </div>
-                </div>
                 {{/if}}
 
                 {{#unless crew}}
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="property-key">Ticket class</div>
-                        <div class="pclass property-value">{{pclass}}</div>
-                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="property-key">Ticket class</div>
+                            <div class="pclass property-value">{{pclass}}</div>
+                        </div>
 
-                    <div class="col-md-4">
-                        <div class="property-key">Ticket number</div>
-                        <div class="ticket_num property-value">{{ticket_num}}</div>
-                    </div>
+                        <div class="col-md-4">
+                            <div class="property-key">Ticket number</div>
+                            <div class="ticket_num property-value">{{ticket_num}}</div>
+                        </div>
 
-                    <div class="col-md-4">
-                        <div class="property-key">Ticket price</div>
-                        <div class="ticket_fare property-value">{{ticket_fare}}</div>
+                        <div class="col-md-4">
+                            <div class="property-key">Ticket price</div>
+                            <div class="ticket_fare property-value">{{ticket_fare}}</div>
+                        </div>
                     </div>
-                </div>
                 {{/unless}}
 
                 <div class="row">

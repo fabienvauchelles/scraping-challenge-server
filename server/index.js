@@ -8,7 +8,6 @@ const compress = require('koa-compress'),
     Koa = require('koa'),
     logger = require('koa-logger'),
     mongoose = require('mongoose'),
-    Router = require('koa-router'),
     serve = require('koa-static'),
     winston = require('winston');
 

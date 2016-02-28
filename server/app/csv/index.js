@@ -6,11 +6,20 @@ const _ = require('lodash'),
     Router = require('koa-router');
 
 
-module.exports = (config) => {
+module.exports = () => {
     const router = new Router();
 
     // Get
     router.get('/', function * (next) {
+        yield this.render('csv/index', {
+            title: 'CSV',
+        });
+
+        yield next;
+    });
+
+    // Get (export)
+    router.get('/export', function * (next) {
         const stream = csv.createWriteStream({
             headers: true,
             quoteHeaders: true,
