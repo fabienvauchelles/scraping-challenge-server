@@ -18,6 +18,10 @@ module.exports = {
         size: 2,
     },
 
+    useragent: {
+        pattern: /chrome/i,
+    },
+
     scrapoxy: {
         max_requests: 30,
         unban_delay: 2 * 60 * 1000,

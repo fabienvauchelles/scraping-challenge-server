@@ -1,6 +1,7 @@
 'use strict';
 
-const Person = require('../../model/person.model'),
+const antiUA = require('./anti-ua'),
+    Person = require('../../model/person.model'),
     Router = require('koa-router');
 
 
@@ -8,7 +9,7 @@ module.exports = () => {
     const router = new Router();
 
     // Get
-    router.get('/', checkUA, function * (next) {
+    router.get('/', antiUA, function * (next) {
         const persons = yield Person
             .find()
             .sort({
@@ -26,18 +27,3 @@ module.exports = () => {
 
     return router.routes();
 };
-
-
-const validUA = /chrome/i;
-
-function * checkUA(next) {
-    const ua = this.request.headers['user-agent'] || '';
-
-    if (!validUA.test(ua)) {
-        this.body = 'Forget me, scraper. Only Chrome is allowed.'
-        this.status = 503;
-        return;
-    }
-
-    yield next;
-}
