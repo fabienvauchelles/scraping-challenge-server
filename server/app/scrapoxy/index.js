@@ -1,16 +1,16 @@
 'use strict';
 
-const Person = require('../../model/person.model'),
+const antiIP = require('./anti-ip'),
+    Person = require('../../model/person.model'),
     Router = require('koa-router'),
     winston = require('winston');
+
 
 module.exports = (config) => {
     const router = new Router();
 
-    const ips = new Map();
-
     // Get
-    router.get('/', checkIP, function * (next) {
+    router.get('/', antiIP, function * (next) {
         const page = parseInt(this.query.page || 0),
             num = page * config.pagination.size;
 
@@ -55,43 +55,4 @@ module.exports = (config) => {
     });
 
     return router.routes();
-
-
-    ////////////
-
-    function * checkIP(next) {
-        const page = parseInt(this.query.page || 0);
-        if (page === 0) {
-            yield next;
-            return;
-        }
-
-        const ip = this.ip;
-
-        let counter = ips.get(ip);
-        if (counter) {
-            if (counter.num <= 0) {
-                this.body = `The IP ${ip} has been banned`;
-                this.statys = 503;
-                return;
-            }
-            else {
-                --counter.num;
-            }
-        }
-        else {
-            winston.info(`Add counter for IP ${ip}`);
-            counter = {
-                num: config.scrapoxy.max_requests - 1,
-            };
-            ips.set(ip, counter);
-
-            setTimeout(() => {
-                winston.info(`Remove counter for IP ${ip}`);
-                ips.delete(ip);
-            }, config.scrapoxy.unban_delay);
-        }
-
-        yield next;
-    }
 };
