@@ -15,8 +15,9 @@ module.exports = {
     },
 
     pagination: {
-        size: 10,
+        size: 2,
     },
+
 
     jwt: {
         secret: 'Kkbxz1Thpi87u91gHNXO4Mt4YD58rW8e',
