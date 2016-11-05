@@ -12,6 +12,7 @@ module.exports = (config) => {
     router.redirect('/ch2', '/pagination');
     router.redirect('/ch3', '/useragent');
     router.redirect('/ch4', '/login');
+    router.redirect('/ch5', '/scrapoxy');
 
     // CSV
     router.use('/csv', require('./csv')(config));
@@ -27,6 +28,9 @@ module.exports = (config) => {
 
     // Login
     router.use('/login', require('./login')(config));
+
+    // Scrapoxy
+    router.use('/scrapoxy', require('./scrapoxy')(config));
 
     // Get
     router.get('/', function * (next) {

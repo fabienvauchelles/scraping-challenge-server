@@ -18,6 +18,10 @@ module.exports = {
         size: 2,
     },
 
+    scrapoxy: {
+        max_requests: 30,
+        unban_delay: 2 * 60 * 1000,
+    },
 
     jwt: {
         secret: 'Kkbxz1Thpi87u91gHNXO4Mt4YD58rW8e',
