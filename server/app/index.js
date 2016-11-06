@@ -13,6 +13,7 @@ module.exports = (config) => {
     router.redirect('/ch3', '/useragent');
     router.redirect('/ch4', '/login');
     router.redirect('/ch5', '/scrapoxy');
+    router.redirect('/ch6', '/scrapoxy-adv');
 
     // CSV
     router.use('/csv', require('./csv')(config));
@@ -31,6 +32,9 @@ module.exports = (config) => {
 
     // Scrapoxy
     router.use('/scrapoxy', require('./scrapoxy')(config));
+
+    // Scrapoxy Advanced
+    router.use('/scrapoxy-adv', require('./scrapoxy-adv')(config));
 
     // Get
     router.get('/', function * (next) {

@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="help panel panel-default">
+        <div class="panel-heading">
+            <div class="panel-title">
+                Challenge 6: Bypass Strong Protection with Scrapoxy
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="help-title">Goal</div>
+
+            <div class="help-content">
+                Like in the Scrapoxy challenge, each page has a few persons.
+                But the website has a very low limit on view by IP.
+            </div>
+
+            <div class="help-content">
+                This time, Scrapoxy cannot start 100 instances to create 100 IPs.
+            </div>
+
+            <div class="help-content">
+                Use the instance restart mechanism of <a href="http://scrapoxy.io" target="_blank">Scrapoxy</a>
+                to change the IP of the instance.
+            </div>
+
+            <div class="help-title">Instructions</div>
+
+            <div class="help-content">
+                <ol>
+                    <li>
+                        Start <span class="important">2 instances maximum</span> in Scrapoxy
+                    </li>
+
+                    <li>
+                        Follow the tutorial:
+                        <a href="http://docs.scrapoxy.io/en/master/tutorials/python-scrapy-blacklisting/index.html" target="_blank">Manage blacklisted request with Scrapy</a>
+                    </li>
+
+                    <li>
+                        Start the scraper (see <a href="https://github.com/fabienvauchelles/scraping-challenge-workshop#step-4-start-the-scraper" target="_blank">Start instructions</a>)
+                    </li>
+                </ol>
+            </div>
+
+            <div class="help-title">Start</div>
+
+            <div class="help-code">
+                git checkout scrapoxy-adv
+            </div>
+
+            <div class="help-title">Soluce</div>
+
+            <div class="help-code">
+                git checkout scrapoxy-adv-soluce
+            </div>
+        </div>
+    </div>
+
+    <div class="jumbotron">
+        <h1>HTTP/503. Forget me, scraper. </h1>
+
+        <h2>IP {{ip}} is banned for a few minutes!</h2>
+    </div>
+</div>

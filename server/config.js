@@ -27,6 +27,11 @@ module.exports = {
         unban_delay: 2 * 60 * 1000,
     },
 
+    scrapoxy_adv: {
+        max_requests: 4,
+        unban_delay: 2 * 60 * 1000,
+    },
+
     jwt: {
         secret: 'Kkbxz1Thpi87u91gHNXO4Mt4YD58rW8e',
         expiresIn: '10m',
