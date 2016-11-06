@@ -2,14 +2,45 @@
     <div class="help panel panel-default">
         <div class="panel-heading">
             <div class="panel-title">
-                Challenge 3: User agent
+                Challenge 3: Bypass User Agent Filter
             </div>
         </div>
         <div class="panel-body">
+            <div class="help-title">Goal</div>
+
+            <div class="help-content">
+                Pages are restricted to Chrome only.
+                Try with Chrome AND Firefox and change the user agent.
+            </div>
+
             <div class="help-title">Instructions</div>
 
             <div class="help-content">
-                Pages are restricted to Chrome. Try with Chrome AND Firefox. And change the user agent.
+                <ol>
+                    <li>
+                        Open this page with Firefox
+                    </li>
+
+                    <li>
+                        Open this page with Chrome and check the difference
+                    </li>
+
+                    <li>
+                        Find the User Agent of Chrome on <a href="http://www.useragentstring.com" target="_blank">UserAgentString</a>
+                    </li>
+
+                    <li>
+                        Open the file <code>myscraper/settings.py</code>
+                    </li>
+
+                    <li>
+                        Change the User Agent (see <a href="https://doc.scrapy.org/en/latest/topics/settings.html?highlight=USER_AGENT#user-agent" target="_blank">USER_AGENT</a>)
+                    </li>
+
+                    <li>
+                        Start the scraper (see <a href="https://github.com/fabienvauchelles/scraping-challenge-workshop#step-4-start-the-scraper" target="_blank">Start instructions</a>)
+                    </li>
+                </ol>
             </div>
 
             <div class="help-title">Start</div>

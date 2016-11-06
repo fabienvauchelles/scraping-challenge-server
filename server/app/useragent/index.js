@@ -18,7 +18,7 @@ module.exports = () => {
             });
 
         yield this.render('useragent/index', {
-            title: 'User agent',
+            title: 'User Agent',
             persons: persons,
         });
 

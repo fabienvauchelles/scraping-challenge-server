@@ -2,25 +2,48 @@
     <div class="help panel panel-default">
         <div class="panel-heading">
             <div class="panel-title">
-                Challenge 5: Scrapoxy
+                Challenge 5: Bypass IP Filter with Scrapoxy
             </div>
         </div>
         <div class="panel-body">
-            <div class="help-title">Instructions</div>
+            <div class="help-title">Goal</div>
 
             <div class="help-content">
-                Each page has a few persons (like in the pagination challenge).
+                Like in the pagination challenge, each page has a few persons.
                 But you cannot retrieve all pages from one IP.
             </div>
 
             <div class="help-content">
-                    Try a proxy to bypass the IP restriction.
+                Use <a href="http://scrapoxy.io" target="_blank">Scrapoxy</a> to bypass the IP restriction.
             </div>
 
+            <div class="help-title">Instructions</div>
+
             <div class="help-content">
-                Use <a href="http://scrapoxy.io" target="_blank">Scrapoxy</a>
-                on <a href="https://aws.amazon.com" target="_blank">AWS</a> (<code>eu-west-1</code> region) with 2 instances!
-                (see <a href="http://docs.scrapoxy.io/en/master/quick_start/index.html" target="_blank">Quick Start</a>).
+                <ol>
+                    <li>
+                        Install Scrapoxy with the <a href="http://docs.scrapoxy.io/en/master/quick_start/index.html" target="_blank">Quick Start</a>
+                    </li>
+
+                    <li>
+                        Use <a href="https://aws.amazon.com" target="_blank">AWS</a> provider
+                        with your credential on <code>eu-west-1</code> region
+                        (please create a your own account)
+                    </li>
+
+                    <li>
+                        Start <span class="important">2 instances maximum</span> in Scrapoxy
+                    </li>
+
+                    <li>
+                        Follow the tutorial:
+                        <a href="http://docs.scrapoxy.io/en/master/tutorials/python-scrapy/index.html#step-3-integrate-scrapoxy-to-the-scrapy" target="_blank">Integrate Scrapoxy to Scrapy</a>
+                    </li>
+
+                    <li>
+                        Start the scraper (see <a href="https://github.com/fabienvauchelles/scraping-challenge-workshop#step-4-start-the-scraper" target="_blank">Start instructions</a>)
+                    </li>
+                </ol>
             </div>
 
             <div class="help-title">Start</div>

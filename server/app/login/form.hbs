@@ -2,22 +2,47 @@
     <div class="help panel panel-default">
         <div class="panel-heading">
             <div class="panel-title">
-                Challenge 4: Login
+                Challenge 4: Bypass the Login Form
             </div>
         </div>
         <div class="panel-body">
-            <div class="help-title">Instructions</div>
+            <div class="help-title">Goal</div>
 
             <div class="help-content">
                 Pages are restricted to a logged user.
+                Add a login request to the scraper.
             </div>
 
             <div class="help-content">
-                Add a login request and a cookies store to the scraper.
+                Email is <span class="important">john@doe.com</span> and password is <span class="important">johnjohn</span>.
             </div>
 
+            <div class="help-title">Instructions</div>
+
             <div class="help-content">
-                The email is 'john@doe.com' and the password 'johnjohn'.
+                <ol>
+                    <li>
+                        Open the file <code>myscraper/spiders/myscraper.py</code>
+                    </li>
+
+                    <li>
+                        Use a <a href="https://doc.scrapy.org/en/latest/topics/request-response.html#formrequest-objects" target="_blank">FormRequest</a>
+                        instead of a <a href="https://doc.scrapy.org/en/latest/topics/request-response.html#request-objects" target="_blank">Request</a>
+                        in the <code>start_requests</code> method
+                    </li>
+
+                    <li>
+                        Use the credentials in the <code>FormRequest</code>
+                    </li>
+
+                    <li>
+                        Add the good URL in <code>FormRequest</code>
+                    </li>
+
+                    <li>
+                        Start the scraper (see <a href="https://github.com/fabienvauchelles/scraping-challenge-workshop#step-4-start-the-scraper" target="_blank">Start instructions</a>)
+                    </li>
+                </ol>
             </div>
 
             <div class="help-title">Start</div>
