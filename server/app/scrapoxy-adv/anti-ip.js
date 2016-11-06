@@ -22,7 +22,7 @@ module.exports = function * (next) {
                 title: 'Scrapoxy Advanced',
                 ip,
             });
-            this.statys = 503;
+            this.status = 503;
             return;
         }
         else {
