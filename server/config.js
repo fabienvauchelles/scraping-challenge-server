@@ -28,7 +28,7 @@ module.exports = {
     },
 
     scrapoxy_adv: {
-        max_requests: 4,
+        max_requests: 15,
         unban_delay: 2 * 60 * 1000,
     },
 
