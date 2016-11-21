@@ -2,26 +2,21 @@
     <div class="help panel panel-default">
         <div class="panel-heading">
             <div class="panel-title">
-                Challenge 6: Bypass IP Filter with Scrapoxy
+                Challenge 5: Schedule with ScrapingHub
             </div>
         </div>
         <div class="panel-body">
             <div class="help-title">Goal</div>
 
             <div class="help-content">
-                Like in the pagination challenge, each page has a few persons.
-                But you cannot retrieve all pages from one IP.
-            </div>
-
-            <div class="help-content">
-                Use <a href="http://scrapoxy.io" target="_blank">Scrapoxy</a>
-                to bypass the IP restriction.
+                All the Titanic passengers are in this page.
+                Schedule a <span class="important">remote scraper</span> to scrap all everyone
             </div>
 
             <div class="help-title">Start</div>
 
             <div class="help-code">
-                git checkout scrapoxy
+                git checkout scrapinghub
             </div>
 
             <div class="help-title">Instructions</div>
@@ -29,50 +24,69 @@
             <div class="help-content">
                 <ol>
                     <li>
-                        Install Scrapoxy with the <a href="http://docs.scrapoxy.io/en/master/quick_start/index.html" target="_blank">Quick Start</a>
+                        Register an account at <a href="https://app.scrapinghub.com/account/signup/" target="_blank">ScrapingHub</a>
                     </li>
 
                     <li>
-                        Use <a href="https://aws.amazon.com" target="_blank">AWS</a> provider
-                        with your credential on <code>eu-west-1</code> region
-                        (please create a your own account)
+                        Create a new project on ScrapingHub:
+                        click on <code>Create Project</code>,
+                        enter <code>myscraper</code> for the name,
+                        and select <code>Scrapy</code> for the type
                     </li>
 
                     <li>
-                        Start <span class="important">2 instances maximum</span> in Scrapoxy
+                        Remember the project ID from the URL: <code>https://app.scrapinghub.com/p/&lt;project ID&gt;/jobs</code>
                     </li>
 
                     <li>
-                        Follow the tutorial:
-                        <a href="http://docs.scrapoxy.io/en/master/tutorials/python-scrapy/index.html#step-3-integrate-scrapoxy-to-the-scrapy" target="_blank">Integrate Scrapoxy to Scrapy</a>
+                        Get the API key <a href="https://app.scrapinghub.com/account/apikey" target="_blank">from the settings</a>
                     </li>
 
                     <li>
-                        Start the scraper (see <a href="https://github.com/fabienvauchelles/scraping-challenge-workshop#step-4-start-the-scraper" target="_blank">Start instructions</a>)
-                        and check the log <code>item_scraped_count</code>.
+                        Go to the scraper directory:
+
+                        <div class="help-code">
+                            cd scraping-challenge-workshop
+                        </div>
+                    </li>
+
+                    <li>
+                        Login to ScrapingHub with the API key
+
+                        <div class="help-code">
+                            shub login
+                        </div>
+                    </li>
+
+                    <li>
+                        Deploy the scraper remotely with project ID:
+
+                        <div class="help-code">
+                            shub deploy
+                        </div>
+                    </li>
+
+                    <li>
+                        Start the scraper remotely:
+
+                        <div class="help-code">
+                            shub schedule myscraper
+                        </div>
+                    </li>
+
+                    <li>
+                        Check items on the Dashboard of ScrapingHub (the job should have received 100 items)
                     </li>
                 </ol>
             </div>
 
             <div class="help-title">Soluce</div>
 
-            <div class="help-code">
-                git checkout .
-            </div>
-
-            <div class="help-code">
-                git checkout scrapoxy-soluce
+            <div class="help-content">
+                There is no code soluce!
             </div>
         </div>
     </div>
-
-    <h2>Persons
-        <span class="persons-min">{{min}}</span>
-        -
-        <span class="persons-max">{{max}}</span>
-        /
-        <span class="persons-count">{{count}}</span>
-    </h2>
 
     {{#each persons}}
         <div class="person panel panel-default">
@@ -112,36 +126,36 @@
                 </div>
 
                 {{#if crew}}
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="property-key">Member of crew</div>
-                            <div class="crew property-value">Yes</div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="property-key">Last ship (crew)</div>
-                            <div class="crew_last_ship property-value">{{crew_last_ship}}</div>
-                        </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="property-key">Member of crew</div>
+                        <div class="crew property-value">Yes</div>
                     </div>
+
+                    <div class="col-md-4">
+                        <div class="property-key">Last ship (crew)</div>
+                        <div class="crew_last_ship property-value">{{crew_last_ship}}</div>
+                    </div>
+                </div>
                 {{/if}}
 
                 {{#unless crew}}
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="property-key">Ticket class</div>
-                            <div class="pclass property-value">{{pclass}}</div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="property-key">Ticket number</div>
-                            <div class="ticket_num property-value">{{ticket_num}}</div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="property-key">Ticket price</div>
-                            <div class="ticket_fare property-value">{{ticket_fare}}</div>
-                        </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="property-key">Ticket class</div>
+                        <div class="pclass property-value">{{pclass}}</div>
                     </div>
+
+                    <div class="col-md-4">
+                        <div class="property-key">Ticket number</div>
+                        <div class="ticket_num property-value">{{ticket_num}}</div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="property-key">Ticket price</div>
+                        <div class="ticket_fare property-value">{{ticket_fare}}</div>
+                    </div>
+                </div>
                 {{/unless}}
 
                 <div class="row">
@@ -203,30 +217,4 @@
             </div>
         </div>
     {{/each}}
-</div>
-
-<div class="container">
-    <nav class="pagination-nav">
-        <ul class="pager">
-            <li>
-                {{#if pageMin}}
-                    <a href="/scrapoxy?page={{pageMin}}">Previous</a>
-                {{/if}}
-
-                {{#unless pageMin}}
-                    <a class="disabled">Previous</a>
-                {{/unless}}
-            </li>
-
-            <li>
-                {{#if pagePlus}}
-                    <a href="/scrapoxy?page={{pagePlus}}">Next</a>
-                {{/if}}
-
-                {{#unless pagePlus}}
-                    <a class="disabled">Next</a>
-                {{/unless}}
-            </li>
-        </ul>
-    </nav>
 </div>
